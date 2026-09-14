@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Hierro</title>
+<meta name="theme-color" content="#17130f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hierro">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- HOY -->
+  <section id="view-hoy" class="view">
+    <div id="hoy-content"></div>
+  </section>
+
+  <!-- HISTORIAL -->
+  <section id="view-historial" class="view" hidden>
+    <div class="screen-header">
+      <h1>Historial</h1>
+      <p class="sub">Tus entrenamientos guardados</p>
+    </div>
+    <div id="historial-list"></div>
+
+    <div class="card chart-wrap">
+      <div class="field" style="margin-bottom:10px;">
+        <label for="chart-exercise-select">Evolución por ejercicio</label>
+        <select id="chart-exercise-select"></select>
+      </div>
+      <div id="chart-container"></div>
+    </div>
+  </section>
+
+  <!-- AJUSTES -->
+  <section id="view-ajustes" class="view" hidden>
+    <div class="screen-header">
+      <h1>Ajustes</h1>
+    </div>
+
+    <div class="card">
+      <div class="field" style="margin-bottom:0;">
+        <label for="settings-name">Tu nombre</label>
+        <input class="field-input" id="settings-name" type="text" placeholder="Nombre" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div class="field" style="margin-bottom:8px;">
+        <label>Fase activa</label>
+        <div class="phase-toggle">
+          <button class="phase-btn" data-phase="kettlebell" type="button">Kettlebell</button>
+          <button class="phase-btn" data-phase="split" type="button">Split</button>
+        </div>
+      </div>
+      <p class="sub" id="phase-desc"></p>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div class="settings-row">
+        <div>
+          <div style="font-weight:600;">Catálogo de ejercicios</div>
+          <div class="sub" id="catalog-status">—</div>
+        </div>
+      </div>
+      <button class="btn secondary" id="btn-update-catalog" style="margin-top:10px;">Actualizar catálogo</button>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <button class="btn danger" id="btn-clear-history">Borrar historial local</button>
+    </div>
+  </section>
+
+  <nav class="tabbar">
+    <div class="tabbar-inner">
+      <button class="tab active" data-tab="hoy">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4v16M18 4v16M6 9h12M6 15h12"/></svg>
+        Hoy
+      </button>
+      <button class="tab" data-tab="historial">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V10M12 19V5M20 19v-6"/></svg>
+        Historial
+      </button>
+      <button class="tab" data-tab="ajustes">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        Ajustes
+      </button>
+    </div>
+  </nav>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
